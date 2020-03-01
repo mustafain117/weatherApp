@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
-    <form action="/" method="post" >
-        <label for="city">City Name: </label>
-        <input type="text" name="city">
-        <button type="submit">Get Weather</button>
-    </form>
+    <div class="form__group field">
+        <form action="/" method="post" >
+            
+            <input type="text" name="city" class="form__field">
+            <label for="city" class="form__label">City</label>
+            <label for="units" class="form__unit_label">Units</label>
+            <select name="units" id="" class="form__select">
+                <option value="degree">Degree Celsius</option>
+                <option value="fahrenheit">Fahrenheit</option>
+            </select>
+            
+            <button type="submit" class="button">Get Weather</button>
+        </form>
+    </div>
 </body>
 </html>
