@@ -14,7 +14,7 @@ app.get('/', function(req,res){
 app.post('/', function(req,res){
     const query = req.body.city;
     const apiKey = "cb1c24f84fa191bfc34d526f28a53b0f"
-    const units = getUnits(req.body.units);
+    const units = req.body.units == "fahrenheit" ? "imperial" : "metric";
     console.log(units)
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${apiKey}&units=${units}`;
     https.get(url, (response) => {
@@ -38,14 +38,6 @@ app.post('/', function(req,res){
     })
 })
 
-app.listen(3000,function(){
-    console.log("Server running on port 3000!")
+app.listen(8080,function(){
+    console.log("Server running on port 8080!")
 })
-
-function getUnits(units){
-    if(units == "fahrenheit"){
-        return "imperial"
-    }else{
-        return "metric"
-    }
-}
